@@ -43,22 +43,30 @@ WHERE coach = 'Fernando Santos';
 /*
 List the player for every goal scored in a game where the stadium was 'National Stadium, Warsaw'
 */
-
+SELECT player
+FROM goal JOIN game ON goal.matchid=game.id
+WHERE stadium = 'National Stadium, Warsaw';
 
 /*
 Show the name of all players who scored a goal against Germany.
 */
-
+SELECT DISTINCT player
+FROM goal JOIN game ON goal.matchid=game.id
+WHERE (team1 = 'GER' OR team2 = 'GER') AND (teamid <> 'GER');
 
 /*
 Show teamname and the total number of goals scored.
 */
-
+SELECT DISTINCT teamname, COUNT(teamid)
+FROM eteam JOIN goal ON eteam.id=goal.teamid
+GROUP BY teamname;
 
 /*
 Show the stadium and the number of goals scored in each stadium.
 */
-
+SELECT DISTINCT stadium, COUNT(matchid)
+FROM game JOIN goal ON game.id=goal.matchid
+GROUP BY stadium;
 
 /*
 For every match involving 'POL', show the matchid, date and the number of goals scored.
