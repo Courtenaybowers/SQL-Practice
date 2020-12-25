@@ -20,14 +20,25 @@ CREATE TABLE author (
   );
   
   
-  */ INSERT new author /*
+*/ INSERT new author /*
 INSERT INTO author
      (author_id, lastname, firstname, email, city, country)
      VALUES ('A1', 'Chong', 'Raul', 'rfc@email.com', 'Toronto', 'CA')
 
-  */ INSERT new authors /*
+*/ INSERT new authors /*
 INSERT INTO author
       (author_id, lastname, firstname, email, city, country)
       VALUES
       ('A1', 'Chong', 'Raul', 'rfc@email.com', 'Toronto', 'CA')
       ('A2', 'Ahuja', 'Rav', 'ra@email.com', 'Toronto', 'CA')
+
+*/UPDATE author table/*
+UPDATE author
+SET lastname = 'Katta'
+firstname = 'Lakshmi'
+WHERE author_id = 'A2';
+
+*/DELETE a row from author table/*
+DELETE FROM author
+WHERE author_id IN ('A2','A3');
+
