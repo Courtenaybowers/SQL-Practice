@@ -1,0 +1,10 @@
+/* Query data from the vendors and customers table in the OM database */
+SELECT vendor_name, customer.last_name, customer.first_name, vendor_state AS state, vendor_city AS city
+FROM vendors AS v
+  JOIN om.customers AS c ON v.vendor_zip code = c.customer_zip
+  ORDER BY state, city;
+  
+  /* SELECT customers that are also employees */
+  SELECT customer_first_name, customer_last_name
+  FROM customers AS c JOIN employees AS e ON c.customer_first_name = e.first_name
+  AND c.customer_last_name = e.last_name;
