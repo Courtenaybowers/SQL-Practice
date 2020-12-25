@@ -18,3 +18,16 @@ CREATE TABLE author (
   city VARCAR (15),
   country CHAR (2)
   );
+  
+  
+  */ INSERT new author /*
+INSERT INTO author
+     (author_id, lastname, firstname, email, city, country)
+     VALUES ('A1', 'Chong', 'Raul', 'rfc@email.com', 'Toronto', 'CA')
+
+  */ INSERT new authors /*
+INSERT INTO author
+      (author_id, lastname, firstname, email, city, country)
+      VALUES
+      ('A1', 'Chong', 'Raul', 'rfc@email.com', 'Toronto', 'CA')
+      ('A2', 'Ahuja', 'Rav', 'ra@email.com', 'Toronto', 'CA')
