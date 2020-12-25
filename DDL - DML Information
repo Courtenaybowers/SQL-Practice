@@ -1,0 +1,14 @@
+DDL (Data Definition Language)
+  Common DDL:
+    CREATE - creating tables and defining columns
+    ALTER - altering tables (add/drop columns, and modify data types)
+    TRUNCATE - deleting data in a table, but not the table itself
+    DROP - used for deleting tables
+
+DML (Data Manipulation Language)
+  CRUD operations (Create, Read, Update, Delete rows)
+  Common DML:
+    INSERT - inserting a row/s into a table
+    SELECT - reads or selects rows from a table
+    UPDATE - edits row/s from a table
+    DELETE - removes a row/s from a table
