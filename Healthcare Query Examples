@@ -1,0 +1,16 @@
+/*Return all patient ids diagnosed with Type 2 Diabetes, and the average HBA1C per patient.*/
+SELECT Patient_ID, AVG(HBA1C)
+FROM Claims
+WHERE year = 2020 AND Diabetes = 'Type 2'
+GROUP BY Patient_ID;
+
+/*Return all patient ids for patients with annual spend over $100K by county*/
+SELECT county, Patient_ID, Agg_Cost
+FROM Claims
+WHERE year = 2020 AND Agg_Cost >= 100000
+ORDER BY county;
+
+/*
+SELECT county, SUM(Agg_Cost)/COUNT(Patient_ID) AS Average Cost Per Patient
+FROM Claims
+GROUP BY county;
