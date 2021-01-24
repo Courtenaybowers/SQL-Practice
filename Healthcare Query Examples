@@ -10,7 +10,35 @@ FROM Claims
 WHERE year = 2020 AND Agg_Cost >= 100000
 ORDER BY county;
 
-/*
+/*Find the Average cost per patient per county \*/
 SELECT county, SUM(Agg_Cost)/COUNT(Patient_ID) AS Average Cost Per Patient
 FROM Claims
 GROUP BY county;
+
+SELECT county, AVG(Agg_Cost) AS Average Cost Per Patient
+FROM claims
+GROUP BY county;
+
+/*Return all information of the nurses who are yet to be registered?*/
+SELECT *
+FROM nurse
+WHERE registered = 'f';
+
+/*Find the name of the nurses who are the head of their department*/
+SELECT name
+FROM nurse
+WHERE position = 'Head Nurse';
+
+/*Obtain the name of the physicians who are the head of each department
+SELECT name
+FROM physician
+WHERE position LIKE 'Head%';
+
+/*Return the Patient_Id, Primary Diagnosis, # of visits, and total cost per patient, for the year 2019, and primary diagnosis of Heart Failure/Ischemic HD*/
+SELECT Patient_ID, primary_diagnosis, COUNT(DISTINCT date_of_service) AS # of Visits, SUM(cost) AS Total_Cost
+FROM Claims
+WHERE enrollment_months > 10 
+AND date_of_service BETWEEN str_to_date('2019-01-01','%Y-%m-%d') AND '2019-12-31'
+AND (primary_diagnosis LIKE '%Heart Failure%' OR primary_diagnosis = 'Ischemic Heart Disease')
+GROUP BY Patient_ID, primary_diagnosis
+ORDER BY Patient_ID, # of Visits;
